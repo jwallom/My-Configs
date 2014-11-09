@@ -2,7 +2,8 @@ hardstatus alwayslastline
 hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B}%Y-%m-%d %{W}%c %{g}]'
 shell -$SHELL
 termcapinfo xterm* ti@:te@
+term xterm-256color
 
 # Default Screens
 startup_message off
-screen -t sh	1 
+screen -t sh	0 
