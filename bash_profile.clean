@@ -5,7 +5,7 @@
 #	---------------------------------
 
 alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
-
+alias tm="tmux attach -t main || tmux new -s main"
 
 #	---------------------------------
 #	|	Basic Aliases		|
