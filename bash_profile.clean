@@ -32,4 +32,10 @@ scopy () { /usr/bin/scp "$@" jwallom3@ssh.physics.gatech.edu:~/Downloads; }
 #       |       Keychain                |
 #       ---------------------------------
 
+source $(brew --repository)/Library/Contributions/brew_bash_completion.sh
+
+#       ---------------------------------
+#       |       Keychain                |
+#       ---------------------------------
+
 # eval $(keychain --eval --agents ssh -Q --quiet ~/.ssh/myKey)
