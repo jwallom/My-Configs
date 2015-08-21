@@ -1,0 +1,33 @@
+#!/bin/sh
+
+#	---------------------------------
+#	|	My Aliases		|
+#	---------------------------------
+
+alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
+
+
+#	---------------------------------
+#	|	Basic Aliases		|
+#	---------------------------------
+
+alias ls="ls -G"
+alias ll="ls -FGlAhp"
+alias path='echo -e ${PATH//:/\\n}'
+alias DT='tee ~/Desktop/terminalOut.txt'
+
+#	---------------------------------
+#	|	Searching		|
+#	---------------------------------
+
+alias qfind="find . -name "
+ff () { /usr/bin/find . -name "$@" ; }      # ff:       Find file under the current directory
+ffs () { /usr/bin/find . -name "$@"'*' ; }  # ffs:      Find file whose name starts with a given string
+ffe () { /usr/bin/find . -name '*'"$@" ; }  # ffe:      Find file whose name ends with a given string
+scopy () { /usr/bin/scp "$@" jwallom3@ssh.physics.gatech.edu:~/Downloads; }
+
+#       ---------------------------------
+#       |       Keychain                |
+#       ---------------------------------
+
+# eval $(keychain --eval --agents ssh -Q --quiet ~/.ssh/myKey)
