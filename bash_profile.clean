@@ -13,6 +13,8 @@ alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
 
 alias ls="ls -G"
 alias ll="ls -FGlAhp"
+alias grep="grep --color=auto"
+alias egrep="egrep --color=auto"
 alias path='echo -e ${PATH//:/\\n}'
 alias DT='tee ~/Desktop/terminalOut.txt'
 
