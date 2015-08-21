@@ -28,6 +28,7 @@ alias copier="ssh -l jwallom3 -L 9103:hpb-s103-copier.physics.gatech.edu:9100 ss
 #	|	Basic Aliases		|
 #	---------------------------------
 
+alias ls="ls -G"
 alias ll="ls -FGlAhp"
 alias path='echo -e ${PATH//:/\\n}'
 alias DT='tee ~/Desktop/terminalOut.txt'
