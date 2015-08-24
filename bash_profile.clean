@@ -41,6 +41,11 @@ source $(brew --repository)/Library/Contributions/brew_bash_completion.sh
 #       ---------------------------------
 
 export PS1="\[\033[01;33m\][$USER@$HOSTNAME]\[\033[0;00m\] \[\033[01;32m\]\w\\$\[\033[0;00m\] "
+clock ()
+{
+	while true;do clear;echo "===========";date +"%r";echo "===========";sleep 1;done
+}
+
 
 #       ---------------------------------
 #       |       Keychain                |
