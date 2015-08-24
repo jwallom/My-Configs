@@ -6,6 +6,8 @@
 
 alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
 alias tm="tmux attach -t main || tmux new -s main"
+alias now='date +"%T"'
+
 
 #	---------------------------------
 #	|	Basic Aliases		|
@@ -29,10 +31,16 @@ ffe () { /usr/bin/find . -name '*'"$@" ; }  # ffe:      Find file whose name end
 scopy () { /usr/bin/scp "$@" jwallom3@ssh.physics.gatech.edu:~/Downloads; }
 
 #       ---------------------------------
-#       |       Keychain                |
+#       |           Brew                |
 #       ---------------------------------
 
 source $(brew --repository)/Library/Contributions/brew_bash_completion.sh
+
+#       ---------------------------------
+#       |        Kick Butt Promt        |
+#       ---------------------------------
+
+export PS1="\[\033[01;33m\][$USER@$HOSTNAME]\[\033[0;00m\] \[\033[01;32m\]\w\\$\[\033[0;00m\] "
 
 #       ---------------------------------
 #       |       Keychain                |
