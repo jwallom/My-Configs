@@ -5,6 +5,7 @@
 #	---------------------------------
 
 alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
+alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
 alias tm="tmux attach -t main || tmux new -s main"
 alias now='date +"%T"'
 
@@ -34,13 +35,15 @@ scopy () { /usr/bin/scp "$@" jwallom3@ssh.physics.gatech.edu:~/Downloads; }
 #       |           Brew                |
 #       ---------------------------------
 
-source $(brew --repository)/Library/Contributions/brew_bash_completion.sh
+if [ -f /usr/local/bin/brew ]; then
+	source $(brew --repository)/Library/Contributions/brew_bash_completion.sh
+fi
 
 #       ---------------------------------
 #       |        Kick Butt Promt        |
 #       ---------------------------------
 
-export PS1="\[\033[01;33m\][$USER@\h]\[\033[0;00m\] \[\033[01;32m\]\w\\$\[\033[0;00m\] "
+export PS1="\[\033[00;34m\][$USER@\h]\[\033[0;00m\] \[\033[01;32m\]\w\\$\[\033[0;00m\] "
 clock ()
 {
 	while true;do clear;echo "===========";date +"%r";echo "===========";sleep 1;done
