@@ -16,6 +16,7 @@ fi
 
 if [ $_myos == "Darwin" ]; then alias ls="ls -G"; else alias ls='ls --color=auto'; fi
 alias ll="ls -FGlAhp"
+alias l.='ls -d .*'
 alias grep="grep --color=auto"
 alias egrep="egrep --color=auto"
 alias path='echo -e ${PATH//:/\\n}'
