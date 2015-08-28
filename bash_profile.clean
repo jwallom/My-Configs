@@ -1,22 +1,28 @@
 #!/bin/sh
 
 #	---------------------------------
-#	|	My Aliases		|
+#	|     OS Specific Items		|
+#	---------------------------------
+_myos="$(uname)"
+
+if [ $_myos == "Darwin" ]; then
+  alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
+  alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
+fi
+
+#	---------------------------------
+#	|	General Aliases		|
 #	---------------------------------
 
-alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
-alias tm="tmux attach -t main || tmux new -s main"
-
-#	---------------------------------
-#	|	Basic Aliases		|
-#	---------------------------------
-
-alias ls="ls -G"
+if [ $_myos == "Darwin" ]; then alias ls="ls -G"; else alias ls='ls --color=auto'; fi
 alias ll="ls -FGlAhp"
+alias l.='ls -d .*'
 alias grep="grep --color=auto"
 alias egrep="egrep --color=auto"
 alias path='echo -e ${PATH//:/\\n}'
 alias DT='tee ~/Desktop/terminalOut.txt'
+alias tm="tmux attach -t main || tmux new -s main"
+alias now='date +"%T"'
 
 #	---------------------------------
 #	|	Searching		|
@@ -29,10 +35,24 @@ ffe () { /usr/bin/find . -name '*'"$@" ; }  # ffe:      Find file whose name end
 scopy () { /usr/bin/scp "$@" jwallom3@ssh.physics.gatech.edu:~/Downloads; }
 
 #       ---------------------------------
-#       |       Keychain                |
+#       |           Brew                |
 #       ---------------------------------
 
-source $(brew --repository)/Library/Contributions/brew_bash_completion.sh
+if [ -f /usr/local/bin/brew ]; then
+	source $(brew --repository)/Library/Contributions/brew_bash_completion.sh
+fi
+
+#       ---------------------------------
+#       |        Kick Butt Promt        |
+#       ---------------------------------
+
+case $_myos in
+	Linux) prompt="\[\033[01;33m\][$USER@\h]\[\033[0;00m\] \[\033[01;32m\]\w\\$\[\033[0;00m\]";;
+	Darwin) prompt="\[\033[00;34m\][$USER@\h]\[\033[0;00m\] \[\033[01;32m\]\w\\$\[\033[0;00m\]";; 
+	*) prompt="$PS1"
+esac
+
+export PS1="$prompt "
 
 #       ---------------------------------
 #       |       Keychain                |
