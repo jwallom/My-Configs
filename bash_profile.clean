@@ -23,10 +23,10 @@ alias path='echo -e ${PATH//:/\\n}'
 alias DT='tee ~/Desktop/terminalOut.txt'
 alias tm="tmux attach -t main || tmux new -s main"
 alias now='date +"%T"'
-alias tunnels="sudo lsof -i -n | egrep '\<ssh\>'"
+alias tunnels="lsof -i -n | egrep '\<ssh\>'"
 
 #	---------------------------------
-#	|	Searching		|
+#	|	Searching	                  	|
 #	---------------------------------
 
 alias qfind="find . -name "
@@ -34,6 +34,15 @@ ff () { /usr/bin/find . -name "$@" ; }      # ff:       Find file under the curr
 ffs () { /usr/bin/find . -name "$@"'*' ; }  # ffs:      Find file whose name starts with a given string
 ffe () { /usr/bin/find . -name '*'"$@" ; }  # ffe:      Find file whose name ends with a given string
 scopy () { /usr/bin/scp "$@" jwallom3@ssh.physics.gatech.edu:~/Downloads; }
+
+#	      ---------------------------------
+#	      |	      Bash Things            	|
+#	      ---------------------------------
+
+HISTCONTROL=ignoredups:ignorespace
+HISTSIZE=1000
+HISTFILESIZE=2000
+export EDITOR=vim
 
 #       ---------------------------------
 #       |           Brew                |
