@@ -23,6 +23,7 @@ alias path='echo -e ${PATH//:/\\n}'
 alias DT='tee ~/Desktop/terminalOut.txt'
 alias tm="tmux attach -t main || tmux new -s main"
 alias now='date +"%T"'
+alias tunnels="sudo lsof -i -n | egrep '\<ssh\>'"
 
 #	---------------------------------
 #	|	Searching		|
@@ -48,7 +49,7 @@ fi
 
 case $_myos in
 	Linux) prompt="\[\033[01;33m\][$USER@\h]\[\033[0;00m\] \[\033[01;32m\]\w\\$\[\033[0;00m\]";;
-	Darwin) prompt="\[\033[00;34m\][$USER@\h]\[\033[0;00m\] \[\033[01;32m\]\w\\$\[\033[0;00m\]";; 
+	Darwin) prompt="\[\033[00;34m\][$USER@\h]\[\033[0;00m\] \[\033[01;32m\]\w\\$\[\033[0;00m\]";;
 	*) prompt="$PS1"
 esac
 
