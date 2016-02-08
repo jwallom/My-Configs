@@ -73,4 +73,6 @@ export PS1="$prompt "
 
 # eval $(keychain --eval --agents ssh -Q --quiet ~/.ssh/myKey)
 
-export PATH="$PATH:/Applications/DevDesktop/drush"
+if [ -d /Applications/DevDesktop/drush ]; then
+  export PATH="$PATH:/Applications/DevDesktop/drush"
+fi
