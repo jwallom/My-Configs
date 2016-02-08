@@ -8,6 +8,9 @@ _myos="$(uname)"
 if [ $_myos == "Darwin" ]; then
   alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
   alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
+  alias chrome-tunnel="chrome --proxy-server=\"socks5://localhost:8088\""
+  alias proxyset="networksetup -setsocksfirewallproxy \"Wi-Fi\" localhost 8088"
+  alias proxyclose="networksetup -setsocksfirewallproxystate \"Wi-Fi\" off"
 fi
 
 #	---------------------------------
@@ -69,3 +72,5 @@ export PS1="$prompt "
 #       ---------------------------------
 
 # eval $(keychain --eval --agents ssh -Q --quiet ~/.ssh/myKey)
+
+export PATH="$PATH:/Applications/DevDesktop/drush"
