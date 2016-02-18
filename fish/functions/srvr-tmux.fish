@@ -1,6 +1,6 @@
 function srvr-tmux --description "Persistantly connect to a given server and attach to tmux."
   if count $argv < /dev/null
-    while not ssh -t $argv -o 'ServerAliveInterval 5' 'tmux attach -t main || tmux new-session -s main' ^ /dev/null;
+    while not ssh -t $argv -o 'ServerAliveInterval 5' 'tmux attach || tmux new-session -s main' ^ /dev/null;
       true
     end
   else
