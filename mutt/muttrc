@@ -1,6 +1,10 @@
+source "gpg2 -dq ~/.mutt/.my_pwds.gpg |"
+source "~/.mutt/.my_accounts"
+
 # IMAP for Office365 Settings
-set imap_user=user@domain.com
-set folder=imaps://mail.server.com/
+set imap_user=$my_username
+set imap_pass=$my_pw
+set folder=imaps://$my_imap_server/
 set spoolfile=+INBOX
 set postponed="+Drafts"
 set record="+Sent Items"
@@ -15,10 +19,10 @@ unset mark_old
 set ssl_use_sslv3=yes
 
 # SMTP Settings
-set realname = 'My Name'
-set from = email@address.com
+set realname = $my_realname
+set from = $my_from
 set use_from = yes
-set smtp_url="smtp://$imap_user@smtp.server.com:587"
+set smtp_url="smtp://$my_username:$imap_pass@$my_smtp_server:587"
 set ssl_force_tls = yes
 set smtp_authenticators = "login"
 

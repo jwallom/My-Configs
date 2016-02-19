@@ -1,3 +1,6 @@
 signature
 aliases
 muttrc.local
+.my_accounts
+.my_pwds
+.my_pwds.gpg
