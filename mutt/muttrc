@@ -8,15 +8,16 @@ set folder=imaps://$my_imap_server/
 set spoolfile=+INBOX
 set postponed="+Drafts"
 set record="+Sent Items"
+mailboxes "=INBOX" "=INBOX/Service Desk"
 
 set imap_check_subscribed="yes"
 set imap_list_subscribed="yes"
-set timeout=15
 set mail_check=90
 set imap_keepalive=180
 set imap_idle
 unset mark_old
 set ssl_use_sslv3=yes
+set net_inc=5
 
 # SMTP Settings
 set realname = $my_realname
@@ -32,6 +33,16 @@ set header_cache="~/.mutt_headers_cache"
 set message_cachedir="~/.mutt_message_cache"
 auto_view text/html
 set text_flowed=yes
+
+# GPG encryption
+set crypt_use_gpgme=yes
+set pgp_timeout=3600
+
+# Sidebar
+set sidebar_visible = yes
+macro index b '<enter-command>toggle sidebar_visible<enter><refresh>'
+macro pager b '<enter-command>toggle sidebar_visible<enter><redraw-screen>'
+set sidebar_sort = yes
 
 # Address Book Handling
 set sort_alias=alias
