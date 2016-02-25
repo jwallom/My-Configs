@@ -1,0 +1,9 @@
+[Unit]
+Description=Virtual Distributed Ethernet
+
+[Service]
+ExecStart=/usr/bin/vde_switch --tap tap0 --mode 0660 \
+ --dirmode 0750 --group qemu
+
+[Install]
+WantedBy=multi-user.target
