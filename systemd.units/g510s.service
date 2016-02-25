@@ -1,9 +1,14 @@
 [Unit]
-Description=Virtual Distributed Ethernet
+Description=Manage Logitech G510s Lights and Special Keys
+After=syslog.target
 
 [Service]
-ExecStart=/usr/bin/vde_switch --tap tap0 --mode 0660 \
- --dirmode 0750 --group qemu
+Type=simple
+ExecStart=/usr/bin/g510s
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=on-failure
+RestartSec=15s
 
 [Install]
 WantedBy=multi-user.target
